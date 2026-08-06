@@ -14,7 +14,9 @@ public class UI {
                     System.out.println("Seleccionar una opcion");
                     System.out.println("[1] Agregar una prenda");
                     System.out.println("[2] Reporte de consola");
-                    System.out.println("[3] Salir");
+                    System.out.println("[3] Mostrar cantidad de prendas por tipo");
+                    System.out.println("[4] Prenda con mayor cantidad");
+                    System.out.println("[5] Salir");
                     opc = teclado.nextInt();
                 }catch(Exception e){
                     System.out.println("opcion no valida, intentelo de nuevo");
@@ -54,17 +56,17 @@ public class UI {
                             switch (select){
                                 case 1:
                                     tipo = "Camisa";
-                                    prenda = new Camisa(tipo, cantidad);
+                                    prenda = new RegistroCamisa(tipo, cantidad);
                                     Lavanderia.prendas.add(prenda);
                                     break;
                                 case 2:
                                     tipo = "Pantalon";
-                                    prenda = new Pantalon(tipo, cantidad);
+                                    prenda = new RegistroPantalon(tipo, cantidad);
                                     Lavanderia.prendas.add(prenda);
                                     break;
                                 case 3:
                                     tipo = "Edredon";
-                                    prenda = new Edredon(tipo, cantidad);
+                                    prenda = new RegistroEdredon(tipo, cantidad);
                                     Lavanderia.prendas.add(prenda);
                                     break;
                             }
@@ -84,6 +86,12 @@ public class UI {
                     System.out.println("total recaudado en el dia: "+count);
                     break;
                 case 3:
+                    Lavanderia.Counter();
+                    break;
+                case 4:
+                    Lavanderia.PrendaCantidad();
+                    break;
+                case 5:
                     System.out.println("Saliendo del programa...");
                     menu = false;
                     break;
